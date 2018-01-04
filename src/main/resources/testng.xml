@@ -1,10 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Suite" verbose="1">
+<suite name="Suite" >
     <listeners>
         <listener class-name="com.epam.selenium.pages.listeners.TestsListener"/>
     </listeners>
-        <parameter name="url" value="https://cheapflights.com/"/>
-    <test name="Choosing flight from Moscw to Tokyo">
+    <parameter name="url" value="https://cheapflights.com/"/>
+    <parameter name="browser" value="firefox"/>
+    <test name="Choosing flight from Moscow to Tokyo">
         <classes>
             <class name="com.epam.selenium.pages.tests.CheapFlightsTest">
                 <methods>
@@ -20,9 +21,12 @@
                         <parameter name="searchPageUrl" value="https://global.cheapflights.com/flight-search/MOW-TYO"/>
                         <parameter name="dollarSign" value="$"/>
                         <parameter name="sumPattern" value="[\$\r\n]*(([0-5][0-4][0-9])|([0-4][0-9][0-9]))[.\r\n]*"/>
-                        <parameter name="currencySymbolXpath" value="//div[@class='quicklink cheapest clearfix selected-filter']//span[@class='symbol']"/>
-                        <parameter name="sumXpath" value="//div[@class='quicklink cheapest clearfix selected-filter']//span[@class='value']"/>
-                        <parameter name="cheapestFlightXpath" value="(//div[@class='above-button']//a[@class='booking-link']/span[@class='price option-text'])[1]"/>
+                        <parameter name="currencySymbolXpath"
+                                   value="//div[@class='quicklink cheapest clearfix selected-filter']//span[@class='symbol']"/>
+                        <parameter name="sumXpath"
+                                   value="//div[@class='quicklink cheapest clearfix selected-filter']//span[@class='value']"/>
+                        <parameter name="cheapestFlightXpath"
+                                   value="(//div[@class='above-button']//a[@class='booking-link']/span[@class='price option-text'])[1]"/>
                         <parameter name="sliderDivider" value="4"></parameter>
                         <parameter name="sliderMultiplier" value="3"></parameter>
                     </include>

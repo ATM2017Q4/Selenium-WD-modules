@@ -33,9 +33,15 @@ public class CheapFlightsTest {
     private String originFieldValue = "";
 
     @BeforeClass
+    @Parameters({"browser"})
     public void launchBrowser() {
-        System.setProperty("webdriver.gecko.driver", "./src/main/resources/geckodriver");
-        driver = new FirefoxDriver();
+       // System.setProperty("webdriver.gecko.driver", "./src/main/resources/geckodriver");
+        FirefoxOptions options = new FirefoxOptions();
+        try {
+            driver = new RemoteWebDriver(new URL("http://192.168.56.1:5566/wd/hub"), options);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().window().maximize();
 
