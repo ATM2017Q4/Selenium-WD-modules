@@ -1,10 +1,15 @@
 **/bin
 .DS_Store
+<<<<<<< HEAD
 _DS_Store
 */.DS_Store
 */_DS_Store
 .DS_Store?
 _DS_Store?
+=======
+*/.DS_Store
+.DS_Store?
+>>>>>>> Fix gitignore
 /.metadata/
 target/
 target
@@ -13,5 +18,9 @@ target
 .idea/
 *.iml
 chromedriver
+<<<<<<< HEAD
 geckodriver
 selenium-server-standalone-3.8.1.jar
+=======
+geckodriver
+>>>>>>> Fix gitignore
