@@ -1,26 +1,29 @@
 **/bin
+
+#ds_store files
 .DS_Store
-<<<<<<< HEAD
 _DS_Store
 */.DS_Store
 */_DS_Store
 .DS_Store?
 _DS_Store?
-=======
-*/.DS_Store
-.DS_Store?
->>>>>>> Fix gitignore
-/.metadata/
+
+#maven folders
 target/
 target
 /target
 /target/
+
+#ide folders
 .idea/
 *.iml
+/.metadata/
+
+#drivers
 chromedriver
-<<<<<<< HEAD
 geckodriver
-selenium-server-standalone-3.8.1.jar
-=======
-geckodriver
->>>>>>> Fix gitignore
+
+#jar files
+*.jar
+*/*.jar
+*/selenium-server-standalone*
