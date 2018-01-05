@@ -48,7 +48,7 @@ public class SecondFligthtSearchPage extends AbstractPage {
         }catch(org.openqa.selenium.NoSuchElementException e){
             logger.log(Level.SEVERE, "Driver was unable to locate the element: either the page didn't load properly or the element doesn't exist");
         }finally {
-            waitForVisibilityFluently(cheapestFlight, 100, 10);
+            waitForVisibilityFluently(cheapestFlight, 150, 10);
             stopsFilter.click();
             waitForClickabilityFluently(oneStop, 10, 1);
             oneStop.click();

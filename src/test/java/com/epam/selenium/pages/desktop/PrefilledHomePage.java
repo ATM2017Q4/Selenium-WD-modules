@@ -90,6 +90,7 @@ public class PrefilledHomePage extends AbstractPage {
                 Actions chooser = new Actions(driver);
                 chooser.click(day)
                         .sendKeys(Keys.TAB)
+                        .moveToElement(driver.findElement(endDateLocator))
                         .click(driver.findElement(endDateLocator))
                         .build().perform();
 

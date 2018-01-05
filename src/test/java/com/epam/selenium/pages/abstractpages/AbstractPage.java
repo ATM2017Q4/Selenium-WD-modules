@@ -89,5 +89,11 @@ public abstract class AbstractPage {
         return driver.findElement(By.xpath(xpath)).getText();
     }
 
+    public void highlightElement(String xpath) {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].setAttribute('style','border: solid 2px red')", this.getDriver().findElement(By.xpath(xpath)));
+
+    }
+
 
 }

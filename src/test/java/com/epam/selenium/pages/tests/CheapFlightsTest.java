@@ -35,7 +35,7 @@ public class CheapFlightsTest {
     @BeforeClass
     @Parameters({"browser"})
     public void launchBrowser() {
-       // System.setProperty("webdriver.gecko.driver", "./src/main/resources/geckodriver");
+        // System.setProperty("webdriver.gecko.driver", "./src/main/resources/geckodriver");
         FirefoxOptions options = new FirefoxOptions();
         try {
             driver = new RemoteWebDriver(new URL("http://192.168.56.1:5566/wd/hub"), options);
@@ -43,6 +43,7 @@ public class CheapFlightsTest {
             e.printStackTrace();
         }
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
 
     }
@@ -90,17 +91,19 @@ public class CheapFlightsTest {
             driver.switchTo().window(winHandle);
         }
 
-        new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOf(driver.findElement(logoXpath)));
+        new WebDriverWait(driver, 40).until(ExpectedConditions.visibilityOf(driver.findElement(logoXpath)));
 
         if (driver.getCurrentUrl().contains(searchPageUrl)) {
             sp1.chooseNonstopFlights()
                     .modifyDuration(sliderDivider, sliderMultiplier)
-                    .sortByCheapest();
+                    .sortByCheapest()
+                    .highlightElement(cheapestFlightXpath);
             Assert.assertTrue(sp1.getElementText(cheapestFlightXpath).matches(sumPattern));
         } else {
             sp2.chooseNonStopFligths()
                     .modifyDuration(sliderDivider, sliderMultiplier)
-                    .closeFilters();
+                    .closeFilters()
+                    .highlightElement(sumXpath);
             Assert.assertTrue(sp2.getElementText(currencySymbolXpath).equals(dollarSign));
             Assert.assertTrue(sp2.getElementText(sumXpath).matches(sumPattern));
         }
