@@ -3,11 +3,10 @@ package com.epam.selenium.pages.tests;
 import com.epam.selenium.pages.desktop.EmptyHomePage;
 import com.epam.selenium.pages.desktop.FirstFlightSearchPage;
 import com.epam.selenium.pages.desktop.PrefilledHomePage;
-import com.epam.selenium.pages.desktop.SecondFligthtSearchPage;
+import com.epam.selenium.pages.desktop.SecondFlightSearchPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -32,18 +31,21 @@ public class CheapFlightsTest {
     private String originFieldAttribute = "value";
     private String originFieldValue = "";
 
+    String hubUrl = "http://10.6.182.106:4444/wd/hub";
+
+
     @BeforeClass
     @Parameters({"browser"})
     public void launchBrowser() {
         // System.setProperty("webdriver.gecko.driver", "./src/main/resources/geckodriver");
         FirefoxOptions options = new FirefoxOptions();
         try {
-            driver = new RemoteWebDriver(new URL("http://192.168.56.1:5566/wd/hub"), options);
+            driver = new RemoteWebDriver(new URL(hubUrl), options);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         driver.manage().window().maximize();
 
     }
@@ -86,7 +88,7 @@ public class CheapFlightsTest {
     public void filterResults(String searchPageUrl, String dollarSign, String sumPattern, String currencySymbolXpath,
                               String sumXpath, String cheapestFlightXpath, int sliderDivider, int sliderMultiplier) {
         FirstFlightSearchPage sp1 = new FirstFlightSearchPage(driver);
-        SecondFligthtSearchPage sp2 = new SecondFligthtSearchPage(driver);
+        SecondFlightSearchPage sp2 = new SecondFlightSearchPage(driver);
         for (String winHandle : driver.getWindowHandles()) {
             driver.switchTo().window(winHandle);
         }
@@ -100,7 +102,7 @@ public class CheapFlightsTest {
                     .highlightElement(cheapestFlightXpath);
             Assert.assertTrue(sp1.getElementText(cheapestFlightXpath).matches(sumPattern));
         } else {
-            sp2.chooseNonStopFligths()
+            sp2.chooseNonStopFlights()
                     .modifyDuration(sliderDivider, sliderMultiplier)
                     .closeFilters()
                     .highlightElement(sumXpath);
