@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.logging.Level;
 
 public class SecondFlightSearchPage extends AbstractPage {
-    public SecondFlightSearchPage(WebDriver driver){
+    public SecondFlightSearchPage(WebDriver driver) {
         super(driver);
     }
 
@@ -42,15 +42,15 @@ public class SecondFlightSearchPage extends AbstractPage {
     @FindBy(id = "update-indicator")
     private WebElement updateIndicator;
 
-    public SecondFlightSearchPage chooseNonStopFlights(){
+    public SecondFlightSearchPage chooseNonStopFlights() {
         try {
             waitForVisibilityFluently(cheapestFlight, 300, 10);
-        }catch(org.openqa.selenium.NoSuchElementException e){
+        } catch (org.openqa.selenium.NoSuchElementException e) {
             logger.log(Level.SEVERE, "Driver was unable to locate the element: either the page didn't load properly or the element doesn't exist");
-        }finally {
             waitForVisibilityFluently(cheapestFlight, 150, 10);
+        } finally {
             stopsFilter.click();
-            waitForClickabilityFluently(oneStop, 10, 1);
+            waitForJSandJQueryToLoad();
             oneStop.click();
             multiStops.click();
         }
@@ -58,7 +58,7 @@ public class SecondFlightSearchPage extends AbstractPage {
         return this;
     }
 
-    public SecondFlightSearchPage modifyDuration(int divider, int multiplier){
+    public SecondFlightSearchPage modifyDuration(int divider, int multiplier) {
         durationFilter.click();
         Dimension size = progress.getSize();
         int sliderWidth = size.getWidth();
@@ -72,13 +72,13 @@ public class SecondFlightSearchPage extends AbstractPage {
 
     }
 
-    public SecondFlightSearchPage closeFilters(){
+    public SecondFlightSearchPage closeFilters() {
         closeButton.click();
         waitForInvisibilityExplicitly(updateIndicator, 10);
         return this;
     }
 
-    public String getElementText(String xpath){
+    public String getElementText(String xpath) {
         return driver.findElement(By.xpath(xpath)).getText();
     }
 }

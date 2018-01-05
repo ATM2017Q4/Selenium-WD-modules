@@ -39,11 +39,6 @@ public abstract class AbstractPage {
                 .until(ExpectedConditions.visibilityOf(element));
     }
 
-    public void waitForClickabilityFluently(WebElement element, int timeout, int poll) {
-        new FluentWait(driver).withTimeout(timeout, TimeUnit.SECONDS).pollingEvery(poll, TimeUnit.SECONDS)
-                .ignoring(NoSuchElementException.class)
-                .until(ExpectedConditions.elementToBeClickable(element));
-    }
 
     public void waitForInvisibilityExplicitly(WebElement element, int timeout) {
         new WebDriverWait(driver, timeout).until(ExpectedConditions.invisibilityOf(element));
