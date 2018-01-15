@@ -4,13 +4,16 @@ import com.epam.selenium.pages.abstractpages.AbstractHomePage;
 import com.epam.selenium.pages.factory.HomePageFactory;
 import com.epam.selenium.pages.factory.SearchPageFactory;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.AfterClass;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class CheapFlightsTest {
@@ -19,10 +22,19 @@ public class CheapFlightsTest {
     private AbstractHomePage homePage;
 
 
+    String hubUrl = "http://10.6.182.106:4444/wd/hub";
+
+
     @BeforeClass
+    @Parameters({"browser"})
     public void launchBrowser() {
-        System.setProperty("webdriver.gecko.driver", "./src/main/resources/geckodriver");
-        driver = new FirefoxDriver();
+        // System.setProperty("webdriver.gecko.driver", "./src/main/resources/geckodriver");
+        FirefoxOptions options = new FirefoxOptions();
+        try {
+            driver = new RemoteWebDriver(new URL(hubUrl), options);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         driver.manage().window().maximize();

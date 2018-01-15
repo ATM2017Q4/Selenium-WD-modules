@@ -11,6 +11,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.logging.Level;
 
+
 public class SecondFlightSearchPage extends AbstractSearchPage {
     public SecondFlightSearchPage(WebDriver driver) {
         super(driver);
@@ -42,6 +43,7 @@ public class SecondFlightSearchPage extends AbstractSearchPage {
 
     @FindBy(id = "update-indicator")
     private WebElement updateIndicator;
+
 
     private String cheapestFlightXpath = "//div[@class='quicklink cheapest clearfix selected-filter']//span[@class='value']";
 
@@ -77,7 +79,6 @@ public class SecondFlightSearchPage extends AbstractSearchPage {
         closeButton.click();
         WebDriverTools.waitForInvisibilityExplicitly(driver, updateIndicator, 10);
     }
-
 
     public int getCheapestFlight() {
         String cheapestFlight = driver.findElement(By.xpath(cheapestFlightXpath)).getText();

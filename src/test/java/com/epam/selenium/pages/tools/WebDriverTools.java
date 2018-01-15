@@ -19,9 +19,7 @@ public class WebDriverTools {
         new FluentWait(driver).withTimeout(timeout, TimeUnit.SECONDS).pollingEvery(poll, TimeUnit.SECONDS)
                 .ignoring(org.openqa.selenium.NoSuchElementException.class)
                 .until(ExpectedConditions.visibilityOf(element));
-
     }
-
     public static void waitForInvisibilityExplicitly(WebDriver driver, WebElement element, int timeout) {
         new WebDriverWait(driver, timeout).until(ExpectedConditions.invisibilityOf(element));
     }
@@ -51,19 +49,11 @@ public class WebDriverTools {
         return wait.until(jQueryLoad) && wait.until(jsLoad);
     }
 
-    public boolean isDisplayed(List<WebElement> element) {
-        boolean result;
-        try {
-            result = (element.size() > 0 && element.get(0).isDisplayed());
-
-        } catch (org.openqa.selenium.NoSuchElementException e) {
-            result = false;
-        }
-        return result;
-    }
 
 //    public void highlightElement(String xpath) {
 //        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 //        jsExecutor.executeScript("arguments[0].setAttribute('style','border: solid 2px red')", this.getDriver().findElement(By.xpath(xpath)));
 //    }
+
+
 }
