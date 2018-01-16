@@ -17,10 +17,7 @@
                         <parameter name="startDate" value="7"/>
                         <parameter name="endDate" value="20"/>
                         <parameter name="numberOfAdults" value="2"/>
-
                         <parameter name="searchPageUrl" value="https://global.cheapflights.com/flight-search/MOW-TYO"/>
-                        <parameter name="dollarSign" value="$"/>
-
                         <parameter name="sliderDivider" value="4"></parameter>
                         <parameter name="sliderMultiplier" value="3"></parameter>
                     </include>

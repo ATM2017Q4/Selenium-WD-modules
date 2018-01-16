@@ -5,6 +5,8 @@ import com.epam.selenium.pages.factory.HomePageFactory;
 import com.epam.selenium.pages.factory.SearchPageFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -22,16 +24,18 @@ public class CheapFlightsTest {
     private AbstractHomePage homePage;
 
 
-    String hubUrl = "http://10.6.182.106:4444/wd/hub";
+    String hubUrl = "http://localhost:4444/wd/hub";
 
 
     @BeforeClass
     @Parameters({"browser"})
     public void launchBrowser() {
         // System.setProperty("webdriver.gecko.driver", "./src/main/resources/geckodriver");
-        FirefoxOptions options = new FirefoxOptions();
+        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+
+        capabilities.setCapability(CapabilityType.PLATFORM_NAME, "LINUX");
         try {
-            driver = new RemoteWebDriver(new URL(hubUrl), options);
+            driver = new RemoteWebDriver(new URL(hubUrl), capabilities);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
