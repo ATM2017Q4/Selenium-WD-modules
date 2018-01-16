@@ -1,7 +1,7 @@
-package com.epam.selenium.pages.desktop;
+package com.cheapflights.desktop;
 
-import com.epam.selenium.pages.abstractpages.AbstractSearchPage;
-import com.epam.selenium.pages.tools.WebDriverTools;
+import com.cheapflights.abstractpages.AbstractSearchPage;
+import com.cheapflights.tools.WebDriverTools;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;

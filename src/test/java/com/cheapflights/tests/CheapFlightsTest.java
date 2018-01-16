@@ -1,10 +1,9 @@
-package com.epam.selenium.pages.tests;
+package com.cheapflights.tests;
 
-import com.epam.selenium.pages.abstractpages.AbstractHomePage;
-import com.epam.selenium.pages.factory.HomePageFactory;
-import com.epam.selenium.pages.factory.SearchPageFactory;
+import com.cheapflights.abstractpages.AbstractHomePage;
+import com.cheapflights.factory.HomePageFactory;
+import com.cheapflights.factory.SearchPageFactory;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -33,7 +32,7 @@ public class CheapFlightsTest {
         // System.setProperty("webdriver.gecko.driver", "./src/main/resources/geckodriver");
         DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 
-        capabilities.setCapability(CapabilityType.PLATFORM_NAME, "LINUX");
+        capabilities.setCapability(CapabilityType.PLATFORM_NAME, "MAC");
         try {
             driver = new RemoteWebDriver(new URL(hubUrl), capabilities);
         } catch (MalformedURLException e) {

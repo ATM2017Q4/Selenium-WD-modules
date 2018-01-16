@@ -1,4 +1,4 @@
-package com.epam.selenium.pages.abstractpages;
+package com.cheapflights.abstractpages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

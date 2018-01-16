@@ -1,4 +1,4 @@
-package com.epam.selenium.pages.tools;
+package com.cheapflights.tools;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

@@ -1,8 +1,8 @@
-package com.epam.selenium.pages.factory;
+package com.cheapflights.factory;
 
-import com.epam.selenium.pages.abstractpages.AbstractHomePage;
-import com.epam.selenium.pages.desktop.EmptyHomePage;
-import com.epam.selenium.pages.desktop.PrefilledHomePage;
+import com.cheapflights.abstractpages.AbstractHomePage;
+import com.cheapflights.desktop.EmptyHomePage;
+import com.cheapflights.desktop.PrefilledHomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

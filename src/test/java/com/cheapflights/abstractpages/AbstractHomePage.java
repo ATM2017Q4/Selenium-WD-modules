@@ -1,7 +1,7 @@
-package com.epam.selenium.pages.abstractpages;
+package com.cheapflights.abstractpages;
 
-import com.epam.selenium.pages.factory.SearchPageFactory;
-import com.epam.selenium.pages.tools.WebDriverTools;
+import com.cheapflights.tools.WebDriverTools;
+import com.cheapflights.factory.SearchPageFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

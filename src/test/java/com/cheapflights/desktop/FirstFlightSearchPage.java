@@ -1,7 +1,7 @@
-package com.epam.selenium.pages.desktop;
+package com.cheapflights.desktop;
 
-import com.epam.selenium.pages.abstractpages.AbstractSearchPage;
-import com.epam.selenium.pages.tools.WebDriverTools;
+import com.cheapflights.abstractpages.AbstractSearchPage;
+import com.cheapflights.tools.WebDriverTools;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
