@@ -28,21 +28,13 @@ public abstract class AbstractHomePage {
 
     private static By logoXpath = By.xpath("//div[contains(@class, 'logo')]//a[@href='/']");
 
-    public AbstractHomePage chooseOrigin(String from) {
-        return this;
-    }
+    public abstract AbstractHomePage chooseOrigin(String from);
 
-    public AbstractHomePage chooseDestination(String to) {
-        return this;
-    }
+    public abstract AbstractHomePage chooseDestination(String to);
 
-    public AbstractHomePage chooseDates(String period, String startDate, String endDate) {
-        return this;
-    }
+    public abstract AbstractHomePage chooseDates(String period, String startDate, String endDate);
 
-    public AbstractHomePage increaseNumberOfAdults(int number) {
-        return this;
-    }
+    public abstract AbstractHomePage increaseNumberOfAdults(int number);
 
     public AbstractSearchPage submitForm() {
         submitButton.click();

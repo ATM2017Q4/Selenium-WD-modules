@@ -18,24 +18,13 @@ public abstract class AbstractSearchPage {
         PageFactory.initElements(this.driver, this);
     }
 
-    private static String cheapestFlightXpath;
+    public abstract AbstractSearchPage chooseNonStopFlights();
 
-    public AbstractSearchPage chooseNonStopFlights() {
-        return this;
-    }
+    public abstract AbstractSearchPage modifyDuration(int divider, int multiplier);
 
-    public AbstractSearchPage modifyDuration(int divider, int multiplier) {
-        return this;
-    }
+    public abstract AbstractSearchPage sortByCheapest();
 
-    public AbstractSearchPage sortByCheapest() {
-        return this;
-    }
-
-    public int getCheapestFlight() {
-        int sum = Integer.parseInt(driver.findElement(By.xpath(cheapestFlightXpath)).getText());
-        return sum;
-    }
+    public abstract int getCheapestFlight();
 
     public void closeFilters() {
 
