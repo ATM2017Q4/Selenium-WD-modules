@@ -24,13 +24,12 @@ public class HomePageFactory {
     }
 
     public static AbstractHomePage getCorrectPage(WebDriver driver) {
-        AbstractHomePage page;
         if (origin.getAttribute(originFieldAttribute).equals(originFieldValue)) {
-            page = new EmptyHomePage(driver);
+            return new EmptyHomePage(driver);
         } else {
-            page = new PrefilledHomePage(driver);
+            return new PrefilledHomePage(driver);
         }
-        return page;
+
 
     }
 

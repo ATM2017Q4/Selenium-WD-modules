@@ -22,7 +22,9 @@ public abstract class AbstractSearchPage {
 
     public abstract AbstractSearchPage modifyDuration(int divider, int multiplier);
 
-    public abstract AbstractSearchPage sortByCheapest();
+    public AbstractSearchPage sortByCheapest() {
+        return this;
+    }
 
     public abstract int getCheapestFlight();
 

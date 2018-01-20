@@ -13,13 +13,11 @@ public class SearchPageFactory {
 
     public static AbstractSearchPage getCorrectPage(WebDriver driver) {
 
-        AbstractSearchPage page;
         if (driver.getCurrentUrl().contains(searchPageUrl)) {
-            page = new FirstFlightSearchPage(driver);
+            return new FirstFlightSearchPage(driver);
         } else {
-            page = new SecondFlightSearchPage(driver);
+            return new SecondFlightSearchPage(driver);
         }
-        return page;
 
     }
 }
