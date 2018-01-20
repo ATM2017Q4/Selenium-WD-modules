@@ -1,0 +1,31 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite">
+    <listeners>
+        <listener class-name="com.cheapflights.listeners.TestsListener"/>
+    </listeners>
+    <parameter name="url" value="https://cheapflights.com/"/>
+    <parameter name="browser" value="firefox"/>
+
+    <test name="Choosing flight from Moscow to Tokyo">
+        <classes>
+            <class name="com.cheapflights.tests.CheapFlightsTest">
+                <methods>
+                    <include name="chooseTheCheapestFlight">
+                        <parameter name="origin" value="Moscow"/>
+                        <parameter name="destination" value="Tokyo"/>
+                        <parameter name="period" value="October"/>
+                        <parameter name="startDate" value="7"/>
+                        <parameter name="endDate" value="20"/>
+                        <parameter name="numberOfAdults" value="2"/>
+                        <parameter name="searchPageUrl" value="https://global.cheapflights.com/flight-search/MOW-TYO"/>
+                        <parameter name="sliderDivider" value="4"></parameter>
+                        <parameter name="sliderMultiplier" value="3"></parameter>
+                    </include>
+                </methods>
+            </class>
+
+        </classes>
+    </test>
+
+
+</suite>

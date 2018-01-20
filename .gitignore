@@ -1,13 +1,29 @@
 **/bin
+
+#ds_store files
 .DS_Store
+_DS_Store
 */.DS_Store
+*/_DS_Store
 .DS_Store?
-/.metadata/
+_DS_Store?
+
+#maven folders
 target/
 target
 /target
 /target/
+
+#ide folders
 .idea/
 *.iml
+/.metadata/
+
+#drivers
 chromedriver
 geckodriver
+
+#jar files
+*.jar
+*/*.jar
+*/selenium-server-standalone*
