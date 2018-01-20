@@ -59,7 +59,6 @@ public class CheapFlightsTest {
                                         String startDate, String endDate, int numberOfAdults,
                                         int sliderDivider, int sliderMultiplier) {
         HomePageFactory pageFactory = new HomePageFactory(driver);
-        new SearchPageFactory();
         homePage = pageFactory.getCorrectPage(driver);
         homePage.chooseOrigin(origin)
                 .chooseDestination(destination)
